@@ -1,0 +1,352 @@
+{
+  "project": {
+    "title": "Auction-Based Dynamic Resource Allocation for Optimized Edge Computing in Distributed Networks",
+    "shortTitle": "Distributed Networks Research Portal",
+    "researcher": "Md Anisur Rahman Chowdhury",
+    "conference": "2025 9th International Conference on Computational System and Information Technology for Sustainable Solutions (CSITSS)",
+    "publicationDate": "2025-11-20",
+    "repositoryUrl": "https://github.com/ANIS151993/Distributed-Networks",
+    "pagesUrl": "https://anis151993.github.io/Distributed-Networks/",
+    "videoUrl": "https://youtu.be/F9P6sYJBts0",
+    "ieeeUrl": "https://ieeexplore.ieee.org/abstract/document/11294238",
+    "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=NQyywPoAAAAJ&citation_for_view=NQyywPoAAAAJ:bEWYMUwI8FkC",
+    "portfolioUrl": "https://marcbd.site",
+    "linkedinUrl": "https://linkedin.com/in/md-anisur-rahman-chowdhury-15862420a",
+    "githubUrl": "https://github.com/ANIS151993",
+    "researchgateUrl": "https://researchgate.net/profile/Md-Anisur-Rahman-Chowdhury"
+  },
+  "authors": [
+    {
+      "name": "Md Anisur Rahman Chowdhury",
+      "affiliation": "Department of Computer and Information Science, Gannon University, Erie, PA, USA",
+      "email": "engr.aanis@gmail.com",
+      "primary": true
+    },
+    {
+      "name": "Khandakar Rabbi Ahmed",
+      "affiliation": "Miyan Research Institute, International University of Business Agriculture and Technology, Dhaka, Bangladesh",
+      "email": "khandakarrabbiahmed@gmail.com"
+    },
+    {
+      "name": "Kefei Wang",
+      "affiliation": "Department of Computer and Information Science, Gannon University, Erie, PA, USA",
+      "email": "wang039@gannon.edu"
+    },
+    {
+      "name": "Aizaada Akylbekova",
+      "affiliation": "Department of Computer and Information Science, Gannon University, Erie, PA, USA",
+      "email": "Akylbekova.aizaada@gmail.com"
+    },
+    {
+      "name": "Shah Tawkir Nesar",
+      "affiliation": "Department of Computer and Information Science, Gannon University, Erie, PA, USA",
+      "email": "ktawkir@gmail.com"
+    },
+    {
+      "name": "Sabrina Mohona",
+      "affiliation": "MBA in Business Analytics, Gannon University, Erie, PA, USA",
+      "email": "sabrinanaz.mohona@gmail.com"
+    }
+  ],
+  "abstract": "Edge computing networks need to dynamically distribute their limited and heterogeneous computation resources to handle changing tasks efficiently. This paper proposes a new auction-based dynamic resource allocation strategy for completely decentralized, heterogeneous edge situations. To ensure fair and optimal task assignment, end-to-end resource exploitation is optimized by allowing independent edge nodes to bid aggressively for incoming tasks depending on their available capacity and processing quality in real time. Extensive experiments conducted on a heterogeneous five-node testbed show that, in contrast to conventional static allocation techniques, the auction-based mechanism achieves a very high 98.2% utilization rate of resources, minimizes task rejection to zero, and significantly prevents residual resource fragmentation. Fairness metrics also make sure that nodes are assigned tasks more fairly. The system shows remarkable scalability and flexibility to near-saturation network conditions with minimal computation overhead. The study adds to the decentralized edge resource orchestration and offers promising possibilities for use cases in smart cities and the Internet of Things that are limited by latency. In the future, the model will be scaled to massive-scale real-time edge settings, communication overhead will be reduced, and adaptive bidding will be used to mitigate load concentration.",
+  "keywords": [
+    "Edge Computing",
+    "Dynamic Resource Allocation",
+    "Auction Theory",
+    "Distributed Systems",
+    "Task Scheduling",
+    "IoT"
+  ],
+  "contributions": [
+    "A fully decentralized resource allocation framework that avoids central coordination and reduces communication overhead for dynamic task arrivals.",
+    "A flexible bidding metric that combines available capacity and task-related quality so designers can steer policies toward latency, energy, or throughput objectives.",
+    "A sealed-bid auction mechanism with O(M · N) complexity that is lightweight enough for real-time, resource-constrained edge environments."
+  ],
+  "motivation": [
+    "Distributed edge systems face dynamic arrivals, heterogeneous node capabilities, and strict latency constraints that static placement policies handle poorly.",
+    "Auction logic gives independent nodes a local decision model for bidding on tasks based on current capacity and performance quality.",
+    "The work targets smart cities, IoT, and other time-sensitive deployments where decentralized orchestration is preferable to a central controller."
+  ],
+  "methodology": {
+    "architectureSummary": "Incoming tasks are broadcast to heterogeneous edge nodes. Nodes evaluate feasibility from available capacity, compute sealed bids from capacity and quality, and the highest eligible bid wins the task. After assignment, node capacity is updated and the process repeats.",
+    "algorithmSteps": [
+      "Broadcast each incoming task to all edge nodes.",
+      "Allow only feasible nodes to participate in the auction.",
+      "Compute bids using a weighted function of residual capacity and node quality.",
+      "Assign the task to the highest bidder.",
+      "Update local capacity and repeat for the next task."
+    ],
+    "equations": [
+      {
+        "label": "Optimization objective",
+        "expression": "Maximize Z = sum_i sum_j x_ij"
+      },
+      {
+        "label": "Capacity constraint",
+        "expression": "sum_j x_ij * C_j <= R_i"
+      },
+      {
+        "label": "Unique task assignment",
+        "expression": "sum_i x_ij = 1"
+      },
+      {
+        "label": "Bid metric",
+        "expression": "b_pq = alpha * A_free_p + beta * (Q_p / D_q)"
+      },
+      {
+        "label": "Time complexity",
+        "expression": "O(M * N)"
+      }
+    ],
+    "weightingInterpretation": [
+      "alpha = 1, beta = 0 prioritizes available capacity.",
+      "alpha = 0.5, beta = 0.5 balances capacity and quality.",
+      "alpha = 0, beta = 1 prioritizes quality or energy efficiency."
+    ]
+  },
+  "experimentalSetup": {
+    "platform": "Ubuntu 22.04 on Intel Core i7-12700 CPU with 32 GB RAM",
+    "trials": 20,
+    "networkNodes": 5,
+    "taskCount": 12,
+    "taskDemandClasses": [
+      {
+        "label": "Small",
+        "rangeUnits": "2-5"
+      },
+      {
+        "label": "Medium",
+        "rangeUnits": "6-10"
+      },
+      {
+        "label": "Large",
+        "rangeUnits": "11-15"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "id": "T1",
+      "demandUnits": 5,
+      "sizeClass": "Small"
+    },
+    {
+      "id": "T2",
+      "demandUnits": 7,
+      "sizeClass": "Medium"
+    },
+    {
+      "id": "T3",
+      "demandUnits": 4,
+      "sizeClass": "Small"
+    },
+    {
+      "id": "T4",
+      "demandUnits": 11,
+      "sizeClass": "Large"
+    },
+    {
+      "id": "T5",
+      "demandUnits": 3,
+      "sizeClass": "Small"
+    },
+    {
+      "id": "T6",
+      "demandUnits": 6,
+      "sizeClass": "Medium"
+    },
+    {
+      "id": "T7",
+      "demandUnits": 14,
+      "sizeClass": "Large"
+    },
+    {
+      "id": "T8",
+      "demandUnits": 9,
+      "sizeClass": "Medium"
+    },
+    {
+      "id": "T9",
+      "demandUnits": 2,
+      "sizeClass": "Small"
+    },
+    {
+      "id": "T10",
+      "demandUnits": 8,
+      "sizeClass": "Medium"
+    },
+    {
+      "id": "T11",
+      "demandUnits": 12,
+      "sizeClass": "Large"
+    },
+    {
+      "id": "T12",
+      "demandUnits": 5,
+      "sizeClass": "Small"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "A",
+      "label": "Node A",
+      "representativeCapacityUnits": 30
+    },
+    {
+      "id": "B",
+      "label": "Node B",
+      "representativeCapacityUnits": 25
+    },
+    {
+      "id": "C",
+      "label": "Node C",
+      "representativeCapacityUnits": 20
+    },
+    {
+      "id": "D",
+      "label": "Node D",
+      "representativeCapacityUnits": 15
+    },
+    {
+      "id": "E",
+      "label": "Node E",
+      "representativeCapacityUnits": 10
+    }
+  ],
+  "allocationMapping": {
+    "static": {
+      "A": [
+        "T1",
+        "T2",
+        "T4"
+      ],
+      "B": [
+        "T3",
+        "T5",
+        "T6"
+      ],
+      "C": [
+        "T7",
+        "T8"
+      ],
+      "D": [
+        "T9"
+      ],
+      "E": [
+        "T10",
+        "T12"
+      ],
+      "Unallocated": [
+        "T11"
+      ]
+    },
+    "auction": {
+      "A": [
+        "T2",
+        "T7",
+        "T10"
+      ],
+      "B": [
+        "T1",
+        "T4",
+        "T12"
+      ],
+      "C": [
+        "T3",
+        "T8",
+        "T11"
+      ],
+      "D": [
+        "T5",
+        "T9"
+      ],
+      "E": [
+        "T6"
+      ],
+      "Unallocated": []
+    }
+  },
+  "performanceAverage": {
+    "static": {
+      "resourceUtilizationRate": 89.4,
+      "taskAssignmentRate": 91.7,
+      "residualFragmentationUnits": 10.6,
+      "fairnessIndex": 6.4,
+      "tasksSuccessfullyPlaced": 11
+    },
+    "auction": {
+      "resourceUtilizationRate": 98.2,
+      "taskAssignmentRate": 100.0,
+      "residualFragmentationUnits": 1.8,
+      "fairnessIndex": 3.2,
+      "tasksSuccessfullyPlaced": 12
+    }
+  },
+  "representativeRunFigureDerived": {
+    "note": "Values reconstructed from the labeled bars in Figures 3 and 4. They describe one representative run from the paper figures rather than the averaged results reported in Tables III and IV.",
+    "staticUsageUnits": {
+      "A": 26,
+      "B": 14,
+      "C": 20,
+      "D": 2,
+      "E": 8
+    },
+    "auctionUsageUnits": {
+      "A": 29,
+      "B": 24,
+      "C": 19,
+      "D": 14,
+      "E": 10
+    },
+    "staticRemainingUnits": {
+      "A": 4,
+      "B": 11,
+      "C": 0,
+      "D": 13,
+      "E": 2
+    },
+    "auctionRemainingUnits": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1,
+      "E": 0
+    }
+  },
+  "taskVolumeEfficiencyApprox": {
+    "note": "Approximate utilization percentages digitized from Figure 6 because the paper does not include a numeric table for those points.",
+    "taskCounts": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "staticUtilizationPercent": [
+      65.2,
+      72.4,
+      78.1,
+      83.3,
+      85.7,
+      87.0
+    ],
+    "auctionUtilizationPercent": [
+      78.6,
+      85.2,
+      90.9,
+      95.0,
+      97.3,
+      98.2
+    ]
+  },
+  "dataIntegrityNotes": [
+    "Task demands, average performance metrics, and allocation mappings were extracted from the local PDF.",
+    "Representative per-node usage and remaining-resource values were reconstructed from the figure labels in the paper.",
+    "The task-allocation labels in Table II do not numerically reconcile with the demand totals and the figure-labeled per-node usage values. The portal therefore presents allocation mappings and figure-level usage charts as separate reported views instead of collapsing them into one inferred simulation."
+  ],
+  "citation": {
+    "plainText": "Md Anisur Rahman Chowdhury, Khandakar Rabbi Ahmed, Kefei Wang, Aizaada Akylbekova, Shah Tawkir Nesar, and Sabrina Mohona. Auction-Based Dynamic Resource Allocation for Optimized Edge Computing in Distributed Networks. 2025 9th International Conference on Computational System and Information Technology for Sustainable Solutions (CSITSS), 2025.",
+    "bibtex": "@inproceedings{chowdhury2025auction,\n  title={Auction-Based Dynamic Resource Allocation for Optimized Edge Computing in Distributed Networks},\n  author={Chowdhury, Md Anisur Rahman and Ahmed, Khandakar Rabbi and Wang, Kefei and Akylbekova, Aizaada and Nesar, Shah Tawkir and Mohona, Sabrina},\n  booktitle={2025 9th International Conference on Computational System and Information Technology for Sustainable Solutions (CSITSS)},\n  year={2025},\n  publisher={IEEE},\n  note={IEEE Xplore document 11294238}\n}"
+  }
+}

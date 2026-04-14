@@ -1,0 +1,7 @@
+codex.md
+*.Zone.Identifier
+*:Zone.Identifier
+.codex/
+.codex
+.DS_Store
+Thumbs.db

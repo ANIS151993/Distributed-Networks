@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distributed Networks Research Portal | Auction-Based Edge Resource Allocation</title>
+  <meta name="description" content="Research portal for the IEEE paper on auction-based dynamic resource allocation for optimized edge computing in distributed networks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-shell">
+      <a class="brand" href="#top">
+        <span class="brand-mark">DN</span>
+        <span class="brand-copy">
+          <strong>Distributed Networks</strong>
+          <small>Research Portal</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#framework">Framework</a></li>
+        <li><a href="#experiment">Experiment</a></li>
+        <li><a href="#analytics">Analytics</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#profiles">Profiles</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-backdrop"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy" data-reveal>
+        <div class="eyebrow-row">
+          <span class="eyebrow accent">IEEE CSITSS 2025</span>
+          <span class="eyebrow">Published November 20, 2025</span>
+          <span class="eyebrow">Decentralized Edge Scheduling</span>
+          <span class="eyebrow">Protected Document Policy</span>
+        </div>
+
+        <div class="researcher-ribbon">
+          <span class="researcher-tag">Lead Researcher</span>
+          <strong>Md Anisur Rahman Chowdhury</strong>
+          <p>Distributed systems researcher, edge computing engineer, and the highlighted author across every public profile linked in this portal.</p>
+        </div>
+
+        <h1>Auction-Based Dynamic Resource Allocation for Optimized Edge Computing in Distributed Networks</h1>
+        <p class="hero-summary">
+          This repository reconstructs the project as a publication-grade research artifact: a GitHub Pages portal, paper-grounded analytics,
+          downloadable materials, protected document access modeled after your previous project, and a researcher-first presentation centered on Md Anisur Rahman Chowdhury.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#analytics">Explore Results</a>
+          <button class="btn btn-secondary" type="button" data-open-gate>Secure Downloads</button>
+          <a class="btn btn-secondary" href="report.html">Read HTML Report</a>
+          <a class="btn btn-secondary" href="#profiles">Open Profile Hub</a>
+        </div>
+
+        <div class="profile-pills">
+          <a href="https://linkedin.com/in/md-anisur-rahman-chowdhury-15862420a" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/ANIS151993" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=NQyywPoAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
+          <a href="https://marcbd.site" target="_blank" rel="noreferrer">Portfolio</a>
+          <a href="https://researchgate.net/profile/Md-Anisur-Rahman-Chowdhury" target="_blank" rel="noreferrer">ResearchGate</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" data-reveal>
+        <article class="author-spotlight">
+          <span class="author-spotlight-tag">Author Spotlight</span>
+          <h2>Md Anisur Rahman Chowdhury</h2>
+          <p>
+            This website now follows the same protected document workflow as your previous project while foregrounding your authorship, research identity, and public academic presence.
+          </p>
+          <a class="btn btn-dark btn-block" href="#profiles">View all profiles</a>
+        </article>
+
+        <div class="paper-preview-card">
+          <img src="assets/images/paper-cover.png" alt="First page preview of the IEEE paper">
+        </div>
+
+        <div class="metric-stack">
+          <article class="metric-tile">
+            <span>Average resource utilization</span>
+            <strong>98.2%</strong>
+            <small>Auction-based allocation</small>
+          </article>
+          <article class="metric-tile">
+            <span>Task assignment rate</span>
+            <strong>100%</strong>
+            <small>12 of 12 tasks placed</small>
+          </article>
+          <article class="metric-tile">
+            <span>Residual fragmentation</span>
+            <strong>1.8 units</strong>
+            <small>vs. 10.6 for static allocation</small>
+          </article>
+          <article class="metric-tile">
+            <span>Algorithmic complexity</span>
+            <strong>O(M · N)</strong>
+            <small>Lightweight sealed-bid assignment</small>
+          </article>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Publication Overview</p>
+          <h2>Why this work matters in edge computing</h2>
+          <p>
+            The paper addresses a familiar failure mode in distributed edge systems: static assignment policies leave fragmented capacity across heterogeneous nodes,
+            causing avoidable task rejection and poor utilization under dynamic load.
+          </p>
+        </div>
+
+        <div class="card-grid three-up">
+          <article class="card" data-reveal>
+            <h3>Research Motivation</h3>
+            <p>
+              Low-latency edge networks must place tasks under shifting demand, heterogeneous hardware, and finite local resources. Centralized scheduling struggles in that setting.
+            </p>
+          </article>
+          <article class="card" data-reveal>
+            <h3>Problem Statement</h3>
+            <p>
+              The goal is to maximize successful task placement while respecting node capacity constraints and improving fairness across the network.
+            </p>
+          </article>
+          <article class="card" data-reveal>
+            <h3>Core Result</h3>
+            <p>
+              Compared with static first-fit allocation, the auction-based method reports stronger utilization, lower fragmentation, zero task rejection, and more balanced use of nodes.
+            </p>
+          </article>
+        </div>
+
+        <div class="split-panel" data-reveal>
+          <article class="card">
+            <h3>Abstract</h3>
+            <p id="abstractText">
+              Edge computing networks need to dynamically distribute their limited and heterogeneous computation resources to handle changing tasks efficiently.
+            </p>
+          </article>
+          <article class="callout-card accent-card">
+            <h3>Key Contributions</h3>
+            <ul class="list-tight" id="contributionsList">
+              <li>Loading contributions from the paper data.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="framework">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Auction Framework</p>
+          <h2>Decentralized bidding for dynamic task assignment</h2>
+          <p>
+            The paper models tasks as broadcast opportunities. Feasible nodes compute bids from residual capacity and quality, and the highest eligible bidder receives the task.
+          </p>
+        </div>
+
+        <div class="framework-layout">
+          <article class="visual-card" data-reveal>
+            <div class="visual-header">
+              <h3>Original architecture figure</h3>
+              <span>Extracted from the local PDF</span>
+            </div>
+            <img src="assets/images/framework-architecture-paper.png" alt="Auction-based resource allocation architecture figure from the paper">
+          </article>
+
+          <article class="card framework-card" data-reveal>
+            <h3>Bidding logic</h3>
+            <div class="equation-strip">
+              <span class="equation-chip">Maximize Z = ΣΣx<sub>ij</sub></span>
+              <span class="equation-chip">Σx<sub>ij</sub>C<sub>j</sub> ≤ R<sub>i</sub></span>
+              <span class="equation-chip">b<sub>pq</sub> = αA<sub>free</sub> + β(Q/D)</span>
+            </div>
+            <ol class="step-list" id="algorithmSteps">
+              <li>Loading methodology steps.</li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="card-grid four-up" data-reveal>
+          <article class="mini-card">
+            <strong>Five heterogeneous nodes</strong>
+            <p>Representative testbed spanning different capacities and hardware profiles.</p>
+          </article>
+          <article class="mini-card">
+            <strong>Twelve incoming tasks</strong>
+            <p>Task demands span small, medium, and large resource classes.</p>
+          </article>
+          <article class="mini-card">
+            <strong>Twenty randomized trials</strong>
+            <p>Average metrics are reported across repeated randomized scenarios.</p>
+          </article>
+          <article class="mini-card">
+            <strong>Linear scaling</strong>
+            <p>The bidding routine is reported with O(M · N) time complexity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experiment">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Experimental Setup</p>
+          <h2>Local paper data extracted into a reusable project dataset</h2>
+          <p>
+            The portal uses task demands, reported allocations, average metrics, and figure-derived representative values taken from the local PDF. Where the paper provides only chart images, the site labels those values explicitly as digitized approximations.
+          </p>
+        </div>
+
+        <div class="experiment-grid">
+          <article class="card" data-reveal>
+            <h3>Simulation environment</h3>
+            <table class="stats-table">
+              <tbody>
+                <tr><th>Platform</th><td id="platformSpec">Ubuntu 22.04 on Intel Core i7-12700 CPU with 32 GB RAM</td></tr>
+                <tr><th>Trials</th><td>20 randomized runs per scenario</td></tr>
+                <tr><th>Network size</th><td>5 edge nodes</td></tr>
+                <tr><th>Task count</th><td>12 tasks per run</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="card" data-reveal>
+            <h3>Task demand profile</h3>
+            <div class="table-wrap">
+              <table class="stats-table compact" id="taskDemandTable">
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>Demand</th>
+                    <th>Class</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td colspan="3">Loading task data.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+
+        <div class="notice-panel" data-reveal>
+          <h3>Data provenance note</h3>
+          <ul class="list-tight" id="integrityNotes">
+            <li>Loading provenance notes.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="analytics">
+      <div class="container">
+        <div class="section-heading invert" data-reveal>
+          <p class="section-kicker">Visual Analytics</p>
+          <h2>Interactive plots grounded in the paper’s reported variables</h2>
+          <p>
+            Every plot below is tied to the local paper data. Distribution, capacity, and assignment views are either directly based on the tables or explicitly labeled as derived from reported figures.
+          </p>
+        </div>
+
+        <div class="analytics-grid">
+          <article class="plot-card" data-reveal>
+            <div class="plot-heading">
+              <h3>DistPlot</h3>
+              <span>Task demand distribution</span>
+            </div>
+            <div id="distPlot" class="plot-surface"></div>
+            <p class="plot-note">Shows how the twelve tasks spread across small, medium, and large resource demands.</p>
+          </article>
+
+          <article class="plot-card" data-reveal>
+            <div class="plot-heading">
+              <h3>Pie Chart</h3>
+              <span>Demand share by task class</span>
+            </div>
+            <div id="piePlot" class="plot-surface"></div>
+            <p class="plot-note">Resource units are aggregated by task class to show where the workload pressure concentrates.</p>
+          </article>
+
+          <article class="plot-card" data-reveal>
+            <div class="plot-heading">
+              <h3>ViolinPlot</h3>
+              <span>Per-node usage spread</span>
+            </div>
+            <div id="violinPlot" class="plot-surface"></div>
+            <p class="plot-note">Uses the figure-labeled representative run to compare how evenly each strategy loads the five nodes.</p>
+          </article>
+
+          <article class="plot-card" data-reveal>
+            <div class="plot-heading">
+              <h3>HeatMap</h3>
+              <span>Task-to-node placement matrix</span>
+            </div>
+            <div class="plot-toolbar">
+              <button class="pill-btn active" type="button" data-heatmap-mode="static">Static</button>
+              <button class="pill-btn" type="button" data-heatmap-mode="auction">Auction</button>
+            </div>
+            <div id="heatMapPlot" class="plot-surface"></div>
+            <p class="plot-note">Visualizes which node receives each task under the two reported allocation strategies.</p>
+          </article>
+
+          <article class="plot-card" data-reveal>
+            <div class="plot-heading">
+              <h3>PairPlot</h3>
+              <span>Demand vs. chosen capacity relationships</span>
+            </div>
+            <div id="pairPlot" class="plot-surface"></div>
+            <p class="plot-note">Derived from the task table, allocation mappings, and representative node capacities extracted from the paper figures.</p>
+          </article>
+
+          <article class="plot-card" data-reveal>
+            <div class="plot-heading">
+              <h3>JointPlot</h3>
+              <span>Auction placements for large and small tasks</span>
+            </div>
+            <div id="jointPlot" class="plot-surface"></div>
+            <p class="plot-note">Highlights how higher-demand tasks are routed toward larger-capacity nodes in the auction-based strategy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Reported Results</p>
+          <h2>Average metrics plus representative-run views from the paper</h2>
+          <p>
+            The paper reports both averaged metrics across 20 randomized trials and specific representative-run figures. The site keeps those two views separate so the evidence trail remains clear.
+          </p>
+        </div>
+
+        <div class="metrics-bar" id="resultsMetrics" data-reveal>
+          <article class="metric-banner">
+            <span>Static utilization</span>
+            <strong>89.4%</strong>
+          </article>
+          <article class="metric-banner">
+            <span>Auction utilization</span>
+            <strong>98.2%</strong>
+          </article>
+          <article class="metric-banner">
+            <span>Static fairness index</span>
+            <strong>6.4</strong>
+          </article>
+          <article class="metric-banner">
+            <span>Auction fairness index</span>
+            <strong>3.2</strong>
+          </article>
+        </div>
+
+        <div class="chart-row">
+          <article class="plot-card light" data-reveal>
+            <div class="plot-heading">
+              <h3>Average metric comparison</h3>
+              <span>Tables III and IV</span>
+            </div>
+            <div id="performanceBarPlot" class="plot-surface"></div>
+          </article>
+
+          <article class="plot-card light" data-reveal>
+            <div class="plot-heading">
+              <h3>Utilization vs. task volume</h3>
+              <span>Figure 6 digitized values</span>
+            </div>
+            <div id="efficiencyTrendPlot" class="plot-surface"></div>
+          </article>
+        </div>
+
+        <div class="figure-gallery">
+          <article class="figure-card" data-reveal>
+            <img src="assets/images/task-allocation-comparison-paper.png" alt="Task allocation comparison from the paper">
+            <div>
+              <h3>Figure 2. Task-to-node assignment outcome</h3>
+              <p>Representative run comparison between static first-fit placement and auction-based placement.</p>
+            </div>
+          </article>
+          <article class="figure-card" data-reveal>
+            <img src="assets/images/resource-utilization-paper.png" alt="Resource utilization by node after task allocation">
+            <div>
+              <h3>Figure 3. Resource utilization per node</h3>
+              <p>Figure-labeled node usage values are used in the violin and remaining-resource comparisons.</p>
+            </div>
+          </article>
+          <article class="figure-card" data-reveal>
+            <img src="assets/images/remaining-resources-paper.png" alt="Remaining resources per node after allocation">
+            <div>
+              <h3>Figure 4. Remaining resources</h3>
+              <p>Shows how the auction mechanism leaves substantially less fragmented capacity across the network.</p>
+            </div>
+          </article>
+          <article class="figure-card" data-reveal>
+            <img src="assets/images/fairness-efficiency-paper.png" alt="Fairness and efficiency metric comparison">
+            <div>
+              <h3>Figure 5. Fairness and efficiency metrics</h3>
+              <p>Summarizes lower fairness-index variance, higher utilization, more tasks placed, and fewer residual units.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="split-panel" data-reveal>
+          <article class="card">
+            <h3>Task explorer</h3>
+            <label class="field-label" for="taskSelector">Select a task from Table I</label>
+            <select id="taskSelector" class="select-control"></select>
+            <div class="task-explorer" id="taskExplorer">
+              <p>Select a task to compare how each strategy treats it.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Interpretation</h3>
+            <ul class="list-tight">
+              <li>The average metrics indicate that auction-based placement improves utilization and fairness while eliminating task rejection in the reported trials.</li>
+              <li>The representative figures show capacity consolidation rather than idle fragments spread across small nodes.</li>
+              <li>Figure 6 suggests the performance gap persists as task volume grows, which is consistent with the paper’s scalability argument.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="video">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Project Walkthrough</p>
+          <h2>Video overview</h2>
+          <p>
+            The repository links the published paper to the project video so visitors can move from summary narrative to supporting material without leaving the portal.
+          </p>
+        </div>
+
+        <div class="video-layout">
+          <div class="video-frame" data-reveal>
+            <iframe src="https://www.youtube.com/embed/F9P6sYJBts0" title="Auction-Based Dynamic Resource Allocation for Optimized Edge Computing in Distributed Networks" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <article class="card" data-reveal>
+            <h3>What to expect</h3>
+            <ul class="list-tight">
+              <li>Problem framing for decentralized edge scheduling.</li>
+              <li>High-level overview of the auction-based assignment mechanism.</li>
+              <li>Performance outcomes relative to a static allocation baseline.</li>
+              <li>Public links to the paper, repository, and researcher profiles.</li>
+            </ul>
+            <a class="btn btn-primary" href="https://youtu.be/F9P6sYJBts0" target="_blank" rel="noreferrer">Watch on YouTube</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Protected Documents</p>
+          <h2>Same document security policy as your previous project</h2>
+          <p>
+            The main paper bundle now follows the same controlled access pattern used in your previous SIF-CCA project: profile verification, password request, password entry, and encrypted downloads.
+          </p>
+        </div>
+
+        <div class="security-grid">
+          <article class="security-card" data-reveal>
+            <span class="resource-badge">Encrypted Research Assets</span>
+            <h3>Protected paper and portal bundles</h3>
+            <p>
+              Visitors can still explore the public report and poster pages, but the downloadable research files are now presented through a gated workflow and password-protected encrypted archives.
+            </p>
+            <div class="hero-actions security-actions">
+              <button class="btn btn-primary" type="button" data-open-gate>Open Secure Download Gate</button>
+              <a class="btn btn-dark" href="report.html">Open Public HTML Report</a>
+              <a class="btn btn-dark" href="poster.html">Open Poster View</a>
+            </div>
+          </article>
+
+          <aside class="policy-card" data-reveal>
+            <h3>Document security policy</h3>
+            <ol class="policy-list">
+              <li>Review the author's public profiles.</li>
+              <li>Request the password using the public email channel.</li>
+              <li>Enter the password to unlock the encrypted bundles.</li>
+              <li>Use the same password again to extract the downloaded files.</li>
+            </ol>
+            <p class="policy-note">
+              The flow, layout, and protected-download treatment follow the same policy style as your previous project.
+            </p>
+          </aside>
+        </div>
+
+        <div class="resource-grid" data-reveal>
+          <article class="resource-card">
+            <div class="resource-meta">
+              <span class="pill">Encrypted</span>
+              <span class="pill accent">Password required</span>
+            </div>
+            <h3>Research paper bundle</h3>
+            <p>
+              Download the IEEE paper as a password-protected encrypted archive instead of a direct public PDF link.
+            </p>
+            <button class="btn btn-primary btn-block" type="button" data-open-gate>Unlock paper bundle</button>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-meta">
+              <span class="pill">Encrypted</span>
+              <span class="pill accent">Portal package</span>
+            </div>
+            <h3>Research portal package</h3>
+            <p>
+              A second encrypted archive groups the portal files, report, poster, data, and documentation into a reusable protected package.
+            </p>
+            <button class="btn btn-primary btn-block" type="button" data-open-gate>Unlock portal package</button>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-meta">
+              <span class="pill">Public</span>
+              <span class="pill accent">Researcher hub</span>
+            </div>
+            <h3>Visible public materials</h3>
+            <p>
+              Your report, poster, repository, and full profile hub remain public so visitors can validate authorship before requesting protected downloads.
+            </p>
+            <a class="btn btn-dark btn-block" href="#profiles">Open profile hub</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publication">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Resources</p>
+          <h2>Publication links, citation, and researcher identity</h2>
+          <p>
+            Everything here is organized for GitHub Pages deployment from the `docs/` folder and for direct use in academic portfolio or project review contexts.
+          </p>
+        </div>
+
+        <div class="card-grid three-up">
+          <article class="card" data-reveal>
+            <h3>Primary links</h3>
+            <div class="link-stack">
+              <a href="#download-gate" data-open-gate>Open secure download gate</a>
+              <a href="report.html">HTML report</a>
+              <a href="poster.html">Poster view</a>
+              <a href="https://ieeexplore.ieee.org/abstract/document/11294238" target="_blank" rel="noreferrer">IEEE Xplore entry</a>
+              <a href="https://github.com/ANIS151993/Distributed-Networks" target="_blank" rel="noreferrer">GitHub repository</a>
+            </div>
+          </article>
+
+          <article class="card" data-reveal>
+            <h3>Author and profiles</h3>
+            <p><strong>Md Anisur Rahman Chowdhury</strong></p>
+            <p>Department of Computer and Information Science, Gannon University</p>
+            <div class="link-stack">
+              <a href="https://github.com/ANIS151993" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://linkedin.com/in/md-anisur-rahman-chowdhury-15862420a" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://scholar.google.com/citations?user=NQyywPoAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
+              <a href="https://marcbd.site" target="_blank" rel="noreferrer">Portfolio</a>
+              <a href="https://researchgate.net/profile/Md-Anisur-Rahman-Chowdhury" target="_blank" rel="noreferrer">ResearchGate</a>
+              <a href="mailto:engr.aanis@gmail.com">Contact email</a>
+            </div>
+          </article>
+
+          <article class="card" data-reveal>
+            <h3>Citation</h3>
+            <pre class="citation-block" id="citationBlock">Loading citation.</pre>
+          </article>
+        </div>
+
+        <div class="faq-grid">
+          <details class="faq-item" data-reveal>
+            <summary>What data in the portal is approximate?</summary>
+            <p>Only the task-volume efficiency line values are approximate digitizations from Figure 6 because the local PDF does not provide that chart as a numeric table.</p>
+          </details>
+          <details class="faq-item" data-reveal>
+            <summary>Why are representative figures and averages shown separately?</summary>
+            <p>The paper includes average metrics across 20 randomized trials and distinct representative-run visuals. The portal preserves that separation to avoid inventing a merged dataset.</p>
+          </details>
+          <details class="faq-item" data-reveal>
+            <summary>Can this be hosted directly on GitHub Pages?</summary>
+            <p>Yes. The project is structured for Pages deployment from the `docs/` directory on the main branch.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="profiles">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Author Profiles</p>
+          <h2>Highlighted researcher and public profile hub</h2>
+          <p>
+            Every major public identity channel for Md Anisur Rahman Chowdhury is collected here so authorship, collaboration, citation, and contact are easy to verify.
+          </p>
+        </div>
+
+        <div class="profile-grid">
+          <article class="profile-card" data-reveal>
+            <h3>LinkedIn</h3>
+            <p>Professional profile, academic background, and engineering identity.</p>
+            <a href="https://linkedin.com/in/md-anisur-rahman-chowdhury-15862420a" target="_blank" rel="noreferrer">linkedin.com/in/md-anisur-rahman-chowdhury-15862420a</a>
+          </article>
+
+          <article class="profile-card" data-reveal>
+            <h3>GitHub</h3>
+            <p>Research repositories, web artifacts, and project source history.</p>
+            <a href="https://github.com/ANIS151993" target="_blank" rel="noreferrer">github.com/ANIS151993</a>
+          </article>
+
+          <article class="profile-card" data-reveal>
+            <h3>Google Scholar</h3>
+            <p>Publication index, citation visibility, and academic discovery channel.</p>
+            <a href="https://scholar.google.com/citations?user=NQyywPoAAAAJ" target="_blank" rel="noreferrer">scholar.google.com/citations?user=NQyywPoAAAAJ</a>
+          </article>
+
+          <article class="profile-card" data-reveal>
+            <h3>Portfolio</h3>
+            <p>Personal showcase site for projects, publications, and technical presentation.</p>
+            <a href="https://marcbd.site" target="_blank" rel="noreferrer">marcbd.site</a>
+          </article>
+
+          <article class="profile-card" data-reveal>
+            <h3>ResearchGate</h3>
+            <p>Research network presence for collaboration, visibility, and publication sharing.</p>
+            <a href="https://researchgate.net/profile/Md-Anisur-Rahman-Chowdhury" target="_blank" rel="noreferrer">researchgate.net/profile/Md-Anisur-Rahman-Chowdhury</a>
+          </article>
+
+          <article class="profile-card" data-reveal>
+            <h3>Contact</h3>
+            <p>Password requests, research communication, and collaboration inquiries.</p>
+            <a href="mailto:engr.aanis@gmail.com">engr.aanis@gmail.com</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">Distributed Networks Research Portal</p>
+        <p>Protected-document research portal highlighting Md Anisur Rahman Chowdhury and all major public research profiles.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#download-gate" data-open-gate>Secure Downloads</a>
+        <a href="#profiles">Profiles</a>
+        <a href="report.html">Report</a>
+        <a href="poster.html">Poster</a>
+        <a href="https://github.com/ANIS151993/Distributed-Networks" target="_blank" rel="noreferrer">Repository</a>
+      </div>
+    </div>
+    <div class="copyright-bar">Copyright © 2026 Md Anisur Rahman Chowdhury. All Rights Reserved.</div>
+  </footer>
+
+  <div class="gate-overlay is-hidden" id="download-gate">
+    <div class="gate-modal" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+      <div class="gate-head">
+        <div>
+          <h3 id="gate-title">Secure download gate</h3>
+          <p>Complete the profile and password steps first, then unlock the encrypted research bundles.</p>
+        </div>
+        <button class="gate-close" type="button" aria-label="Close download gate" onclick="closeGate()">&times;</button>
+      </div>
+
+      <div class="gate-steps">
+        <section class="download-step" data-gate-step="1">
+          <span class="step-badge">Step 1</span>
+          <h4>Review the author's public profiles</h4>
+          <p>Open the public profile links below, then confirm both checks to continue.</p>
+          <div class="gate-actions">
+            <a class="btn btn-dark btn-block" href="https://github.com/ANIS151993" target="_blank" rel="noreferrer">Open GitHub profile</a>
+            <a class="btn btn-dark btn-block" href="https://linkedin.com/in/md-anisur-rahman-chowdhury-15862420a" target="_blank" rel="noreferrer">Open LinkedIn profile</a>
+            <a class="btn btn-dark btn-block" href="https://scholar.google.com/citations?user=NQyywPoAAAAJ" target="_blank" rel="noreferrer">Open Google Scholar</a>
+            <a class="btn btn-dark btn-block" href="https://marcbd.site" target="_blank" rel="noreferrer">Open Portfolio</a>
+            <a class="btn btn-dark btn-block" href="https://researchgate.net/profile/Md-Anisur-Rahman-Chowdhury" target="_blank" rel="noreferrer">Open ResearchGate</a>
+          </div>
+          <label class="gate-check"><input id="gate-profiles" type="checkbox"> I reviewed the public profile links.</label>
+          <label class="gate-check"><input id="gate-authorship" type="checkbox"> I verified the author identity through these public channels.</label>
+          <div class="gate-actions">
+            <button class="btn btn-primary btn-block" id="gate-next-1" type="button" onclick="continueGate(2)">Continue</button>
+          </div>
+        </section>
+
+        <section class="download-step is-hidden" data-gate-step="2">
+          <span class="step-badge">Step 2</span>
+          <h4>Request the password</h4>
+          <p>Use the author's public email address before requesting access to the encrypted bundles.</p>
+          <a class="btn btn-dark btn-block" href="mailto:engr.aanis@gmail.com?subject=Password%20request%20for%20Distributed%20Networks%20research%20download">Email the author</a>
+          <div class="email-template">Subject: Password request for Distributed Networks research download
+
+Hello Md Anisur Rahman Chowdhury,
+I reviewed your public profiles and would like the password for the encrypted Distributed Networks research package.
+Name:
+Institution:
+Purpose of use:
+
+Regards,</div>
+          <button class="copy-btn" type="button" onclick="copyEmailTemplate(this)">Copy email template</button>
+          <label class="gate-check"><input id="gate-request" type="checkbox"> I sent the password request email.</label>
+          <div class="gate-actions">
+            <button class="btn btn-dark btn-block" type="button" onclick="goToGateStep(1)">Back</button>
+            <button class="btn btn-primary btn-block" id="gate-next-2" type="button" onclick="continueGate(3)">Continue</button>
+          </div>
+        </section>
+
+        <section class="download-step is-hidden" data-gate-step="3">
+          <span class="step-badge">Step 3</span>
+          <h4>Enter the password</h4>
+          <p>Enter the password to reveal the encrypted bundles. The same password is required again after download for extraction.</p>
+          <input class="gate-input" id="gate-password" type="password" placeholder="Enter the archive password">
+          <p class="gate-error is-hidden" id="gate-error">The password is incorrect. Use the correct password and try again.</p>
+          <div class="gate-actions">
+            <button class="btn btn-dark btn-block" type="button" onclick="goToGateStep(2)">Back</button>
+            <button class="btn btn-primary btn-block" type="button" onclick="unlockDownloads()">Unlock downloads</button>
+          </div>
+        </section>
+
+        <section class="download-step is-hidden" data-gate-step="4">
+          <span class="step-badge">Unlocked</span>
+          <h4>Encrypted files ready</h4>
+          <p>Both downloads remain encrypted after transfer. Use the same password to extract them locally.</p>
+          <div class="download-links">
+            <a class="btn btn-primary btn-block" href="assets/papers/Distributed-Networks-Research-Paper-Encrypted.zip">Download encrypted IEEE paper bundle</a>
+            <a class="btn btn-primary btn-block" href="assets/papers/Distributed-Networks-Research-Portal-Encrypted.zip">Download encrypted research portal package</a>
+            <a class="btn btn-dark btn-block" href="report.html">Open public HTML report</a>
+            <a class="btn btn-dark btn-block" href="#profiles" onclick="closeGate()">Open profile hub</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
