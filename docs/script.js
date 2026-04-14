@@ -55,6 +55,14 @@ async function sha256(value) {
 function setupChrome() {
   const navLinks = document.getElementById("navLinks");
   const scrollProgress = document.getElementById("scrollProgress");
+  const siteNav = document.getElementById("siteNav");
+  const sectionLinks = Array.from(document.querySelectorAll(".nav-links a[href^='#']"))
+    .map((link) => {
+      const href = link.getAttribute("href");
+      const target = href ? document.querySelector(href) : null;
+      return target ? { link, target } : null;
+    })
+    .filter(Boolean);
 
   document.querySelectorAll(".nav-links a").forEach((link) => {
     link.addEventListener("click", () => {
@@ -69,10 +77,33 @@ function setupChrome() {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
       scrollProgress.style.width = `${progress}%`;
+
+      if (siteNav) {
+        siteNav.classList.toggle("is-scrolled", window.scrollY > 20);
+      }
+
+      if (sectionLinks.length) {
+        let activeIndex = 0;
+        sectionLinks.forEach((entry, index) => {
+          if (window.scrollY + 180 >= entry.target.offsetTop) {
+            activeIndex = index;
+          }
+        });
+
+        sectionLinks.forEach((entry, index) => {
+          entry.link.classList.toggle("is-active", index === activeIndex);
+        });
+      }
     };
     updateScroll();
     window.addEventListener("scroll", updateScroll, { passive: true });
     window.addEventListener("resize", updateScroll);
+  } else if (siteNav) {
+    const updateNav = () => {
+      siteNav.classList.toggle("is-scrolled", window.scrollY > 20);
+    };
+    updateNav();
+    window.addEventListener("scroll", updateNav, { passive: true });
   }
 }
 
