@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distributed Networks | HTML Research Report</title>
+  <meta name="description" content="Extended HTML report for the auction-based edge computing paper.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="page-shell">
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-shell">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">DN</span>
+        <span class="brand-copy">
+          <strong>Distributed Networks</strong>
+          <small>HTML Report</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Portal</a></li>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#figures">Figures</a></li>
+        <li><a href="#citation">Citation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container page-hero-grid">
+      <div data-reveal>
+        <p class="section-kicker">Extended Report</p>
+        <h1>A publication-focused HTML companion to the IEEE paper</h1>
+        <p>
+          This page distills the local PDF into an accessible web report with paper-grounded tables, extracted figures, reusable links, and explicit data provenance notes.
+        </p>
+        <div class="page-links">
+          <a class="btn btn-primary" href="index.html">Back to portal</a>
+          <a class="btn btn-secondary" href="poster.html">Poster view</a>
+          <a class="btn btn-secondary" href="assets/papers/distributed-networks-ieee-paper.pdf">Open PDF</a>
+        </div>
+      </div>
+
+      <aside class="page-hero-panel" data-reveal>
+        <h3>Publication context</h3>
+        <ul class="list-tight">
+          <li>Conference: 2025 9th International Conference on Computational System and Information Technology for Sustainable Solutions (CSITSS)</li>
+          <li>Publication date: November 20, 2025</li>
+          <li>Repository link: GitHub-ready structure for `docs/` deployment</li>
+          <li>Paper source: Local PDF included in this repository</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="summary">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Research Summary</p>
+          <h2>Abstract, contributions, and implementation logic</h2>
+          <p>
+            The report keeps the paper’s own language wherever practical, then adds structure around the algorithm, experiment design, and reported outcomes.
+          </p>
+        </div>
+
+        <div class="split-panel">
+          <article class="card" data-reveal>
+            <h3>Abstract</h3>
+            <p id="abstractText">
+              Edge computing networks need to dynamically distribute their limited and heterogeneous computation resources to handle changing tasks efficiently.
+            </p>
+          </article>
+
+          <article class="callout-card accent-card" data-reveal>
+            <h3>Reported contributions</h3>
+            <ul class="list-tight" id="contributionsList">
+              <li>Loading contributions from the shared research dataset.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="report-grid">
+          <article class="card" data-reveal>
+            <h3>Auction procedure</h3>
+            <ol class="step-list" id="algorithmSteps">
+              <li>Loading methodology steps.</li>
+            </ol>
+          </article>
+
+          <article class="card" data-reveal>
+            <h3>Performance headline</h3>
+            <ul class="list-tight">
+              <li>Auction-based allocation reports 98.2% resource utilization compared with 89.4% for static allocation.</li>
+              <li>Task assignment rises from 91.7% to 100%.</li>
+              <li>Residual fragmentation falls from 10.6 units to 1.8 units.</li>
+              <li>Fairness index improves from 6.4 to 3.2, where lower is better.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="tables">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Tables</p>
+          <h2>Experiment setup and reported allocations</h2>
+          <p>
+            The first table is loaded from the shared JSON extracted from the local PDF. The allocation and performance tables are reproduced directly as web-readable summaries.
+          </p>
+        </div>
+
+        <div class="report-grid">
+          <article class="card" data-reveal>
+            <h3>Simulation environment</h3>
+            <table class="stats-table">
+              <tbody>
+                <tr><th>Platform</th><td id="platformSpec">Ubuntu 22.04 on Intel Core i7-12700 CPU with 32 GB RAM</td></tr>
+                <tr><th>Trials</th><td>20 randomized runs per scenario</td></tr>
+                <tr><th>Nodes</th><td>5 heterogeneous edge nodes</td></tr>
+                <tr><th>Tasks</th><td>12 computational tasks</td></tr>
+                <tr><th>Demand classes</th><td>Small (2-5), Medium (6-10), Large (11-15)</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="card" data-reveal>
+            <h3>Task resource demands</h3>
+            <div class="table-wrap">
+              <table class="stats-table compact" id="taskDemandTable">
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>Demand</th>
+                    <th>Class</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td colspan="3">Loading task data.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+
+        <div class="report-grid">
+          <article class="card" data-reveal>
+            <h3>Task allocation mapping</h3>
+            <table class="stats-table compact">
+              <thead>
+                <tr>
+                  <th>Node</th>
+                  <th>Static first-fit</th>
+                  <th>Auction-based</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th>Node A</th><td>T1, T2, T4</td><td>T2, T7, T10</td></tr>
+                <tr><th>Node B</th><td>T3, T5, T6</td><td>T1, T4, T12</td></tr>
+                <tr><th>Node C</th><td>T7, T8</td><td>T3, T8, T11</td></tr>
+                <tr><th>Node D</th><td>T9</td><td>T5, T9</td></tr>
+                <tr><th>Node E</th><td>T10, T12</td><td>T6</td></tr>
+                <tr><th>Unallocated</th><td>T11</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="card" data-reveal>
+            <h3>Average performance metrics</h3>
+            <table class="stats-table compact">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  <th>Static</th>
+                  <th>Auction</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th>Resource utilization rate</th><td>89.4%</td><td>98.2%</td></tr>
+                <tr><th>Task assignment rate</th><td>91.7%</td><td>100%</td></tr>
+                <tr><th>Residual fragmentation</th><td>10.6 units</td><td>1.8 units</td></tr>
+                <tr><th>Fairness index</th><td>6.4</td><td>3.2</td></tr>
+                <tr><th>Tasks successfully placed</th><td>11/12</td><td>12/12</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <article class="notice-panel" data-reveal>
+          <h3>Data integrity notes</h3>
+          <ul class="list-tight" id="integrityNotes">
+            <li>Loading provenance notes.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="figures">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Figures</p>
+          <h2>Original paper visuals plus rebuilt web-native charts</h2>
+          <p>
+            The extracted figures preserve the paper’s own presentation while the Plotly charts below re-express the underlying variables for easier exploration on the web.
+          </p>
+        </div>
+
+        <div class="chart-row">
+          <article class="plot-card light" data-reveal>
+            <div class="plot-heading">
+              <h3>Average metric comparison</h3>
+              <span>Tables III and IV</span>
+            </div>
+            <div id="performanceBarPlot" class="plot-surface"></div>
+          </article>
+
+          <article class="plot-card light" data-reveal>
+            <div class="plot-heading">
+              <h3>Utilization trend with growing task volume</h3>
+              <span>Figure 6 approximation</span>
+            </div>
+            <div id="efficiencyTrendPlot" class="plot-surface"></div>
+          </article>
+        </div>
+
+        <div class="report-grid">
+          <article class="report-figure" data-reveal>
+            <img src="assets/images/framework-architecture-paper.png" alt="Architecture figure from the paper">
+            <div>
+              <h3>Architecture</h3>
+              <p>The original figure shows the system architecture, optimization framing, and the auction steps from announcement to resource updates.</p>
+            </div>
+          </article>
+
+          <article class="report-figure" data-reveal>
+            <img src="assets/images/task-allocation-comparison-paper.png" alt="Task allocation comparison figure">
+            <div>
+              <h3>Task allocation comparison</h3>
+              <p>Representative run showing how task distribution differs between static first-fit and auction-based assignment.</p>
+            </div>
+          </article>
+
+          <article class="report-figure" data-reveal>
+            <img src="assets/images/resource-utilization-paper.png" alt="Resource utilization by node figure">
+            <div>
+              <h3>Resource utilization by node</h3>
+              <p>The auction strategy spreads work more evenly across nodes in the representative figure.</p>
+            </div>
+          </article>
+
+          <article class="report-figure" data-reveal>
+            <img src="assets/images/remaining-resources-paper.png" alt="Remaining resources per node figure">
+            <div>
+              <h3>Remaining resources</h3>
+              <p>Residual capacity becomes less fragmented under the auction-based strategy, which is why large tasks are less likely to be rejected.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="citation">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">Citation</p>
+          <h2>Reusable reference block</h2>
+          <p>
+            The BibTeX entry below is included so the repository can be cited directly from the report page without opening the PDF first.
+          </p>
+        </div>
+
+        <article class="card" data-reveal>
+          <pre class="citation-block" id="citationBlock">Loading citation.</pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">Distributed Networks HTML Report</p>
+        <p>Built from the local PDF, extracted figures, and shared project dataset.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Portal</a>
+        <a href="poster.html">Poster</a>
+        <a href="assets/papers/distributed-networks-ieee-paper.pdf">Paper PDF</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

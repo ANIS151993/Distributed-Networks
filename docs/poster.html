@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distributed Networks | Poster View</title>
+  <meta name="description" content="Poster-style overview for the auction-based edge computing paper.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="poster-page">
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-shell">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">DN</span>
+        <span class="brand-copy">
+          <strong>Distributed Networks</strong>
+          <small>Poster View</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Portal</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="#poster">Poster</a></li>
+        <li><a href="#citation">Citation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="poster">
+    <section class="poster-hero">
+      <div class="container">
+        <p class="section-kicker" data-reveal>Research Poster</p>
+        <h1 class="poster-title" data-reveal>Auction-based edge orchestration in one page</h1>
+        <p class="poster-subtitle" data-reveal>
+          A compact poster-style summary of the IEEE paper, designed for portfolio display, review meetings, and conference-style web presentation.
+        </p>
+
+        <div class="page-links" data-reveal>
+          <a class="btn btn-primary" href="index.html">Open main portal</a>
+          <a class="btn btn-secondary" href="report.html">Read report</a>
+          <a class="btn btn-secondary" href="assets/papers/distributed-networks-ieee-paper.pdf">Download paper</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="poster-grid">
+          <article class="poster-panel" data-reveal>
+            <strong>Research problem</strong>
+            <h3>Static policies fragment capacity in heterogeneous edge networks</h3>
+            <p>
+              Dynamic task arrivals, uneven node capacity, and latency-sensitive workloads make centralized or fixed allocation rules inefficient.
+            </p>
+          </article>
+
+          <article class="poster-panel" data-reveal>
+            <strong>Core idea</strong>
+            <h3>Let feasible nodes bid using residual capacity and quality</h3>
+            <p>
+              Each task is broadcast, feasible nodes compute bids, the highest eligible bid wins, and local capacity is updated after assignment.
+            </p>
+          </article>
+
+          <article class="poster-panel" data-reveal>
+            <strong>Experimental setup</strong>
+            <h3>Five nodes, twelve tasks, twenty randomized trials</h3>
+            <p>
+              Simulations were run on Ubuntu 22.04 with an Intel Core i7-12700 CPU and 32 GB RAM, with task demands spanning small, medium, and large classes.
+            </p>
+          </article>
+
+          <article class="poster-panel" data-reveal>
+            <strong>Reported outcome</strong>
+            <h3>Higher utilization, fewer fragments, no rejected tasks</h3>
+            <p>
+              The auction-based strategy reports 98.2% utilization, 100% task placement, 1.8 residual units, and improved fairness over the static baseline.
+            </p>
+          </article>
+        </div>
+
+        <div class="poster-grid">
+          <article class="poster-panel" data-reveal>
+            <img src="assets/images/framework-architecture-paper.png" alt="Paper architecture figure">
+            <h3>Architecture snapshot</h3>
+            <p>The paper’s original figure condenses the system architecture, optimization framing, and bidding workflow.</p>
+          </article>
+
+          <article class="poster-panel" data-reveal>
+            <img src="assets/images/fairness-efficiency-paper.png" alt="Fairness and efficiency metrics figure">
+            <h3>Outcome snapshot</h3>
+            <p>Figure 5 captures the main message: better utilization and fairness with lower residual fragmentation.</p>
+          </article>
+        </div>
+
+        <div class="poster-grid">
+          <article class="poster-panel" data-reveal>
+            <div class="plot-heading">
+              <h3>Average metrics</h3>
+              <span>Paper-grounded comparison</span>
+            </div>
+            <div id="performanceBarPlot" class="plot-surface"></div>
+          </article>
+
+          <article class="poster-panel" data-reveal>
+            <div class="plot-heading">
+              <h3>Task-volume trend</h3>
+              <span>Digitized from Figure 6</span>
+            </div>
+            <div id="efficiencyTrendPlot" class="plot-surface"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="citation">
+      <div class="container">
+        <div class="poster-grid">
+          <article class="poster-panel" data-reveal>
+            <strong>Researcher</strong>
+            <h3>Md Anisur Rahman Chowdhury</h3>
+            <p>
+              Department of Computer and Information Science, Gannon University. Profiles and publication links are available from the main portal.
+            </p>
+          </article>
+
+          <article class="poster-panel" data-reveal>
+            <strong>BibTeX</strong>
+            <pre class="citation-block" id="citationBlock">Loading citation.</pre>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">Distributed Networks Poster</p>
+        <p>Poster-style companion page for GitHub Pages and academic showcase use.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Portal</a>
+        <a href="report.html">Report</a>
+        <a href="assets/papers/distributed-networks-ieee-paper.pdf">Paper PDF</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
