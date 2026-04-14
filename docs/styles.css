@@ -366,20 +366,20 @@ pre {
 .hero-engagement-kicker {
   padding: 0.42rem 0.72rem;
   background: rgba(255, 225, 174, 0.14);
-  color: #ffe1ae;
+  color: #fff0c4;
 }
 
 .hero-engagement-intro p {
   margin: 0.55rem 0 0;
-  color: rgba(238, 247, 251, 0.8);
+  color: rgba(248, 252, 255, 0.92);
   font-size: 0.97rem;
 }
 
 .hero-engagement-note {
   padding: 0.45rem 0.78rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: rgba(238, 247, 251, 0.72);
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff3d1;
+  background: rgba(9, 16, 25, 0.22);
 }
 
 .hero-engagement-grid {
@@ -408,8 +408,8 @@ pre {
   position: absolute;
   inset: -22%;
   z-index: -2;
-  background: radial-gradient(circle at var(--spotlight-x, 50%) var(--spotlight-y, 30%), rgba(255, 255, 255, 0.28), transparent 30%);
-  opacity: 0.95;
+  background: radial-gradient(circle at var(--spotlight-x, 50%) var(--spotlight-y, 30%), rgba(255, 244, 214, 0.14), transparent 34%);
+  opacity: 0.6;
   transition: opacity 180ms ease;
 }
 
@@ -459,29 +459,34 @@ pre {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #fff;
+  color: #fff6da;
   font-size: 0.84rem;
   font-weight: 900;
   letter-spacing: 0.08em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hero-engagement-label {
-  color: rgba(255, 255, 255, 0.84);
+  color: #fff0c4;
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
 }
 
 .hero-engagement-card strong {
   font-size: 1.06rem;
   line-height: 1.36;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
 }
 
 .hero-engagement-card p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(248, 251, 255, 0.94);
   font-size: 0.94rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
 }
 
 .hero-engagement-footer {
@@ -491,9 +496,10 @@ pre {
   justify-content: space-between;
   gap: 0.75rem;
   padding-top: 0.35rem;
-  color: rgba(255, 255, 255, 0.86);
+  color: #fff5de;
   font-size: 0.87rem;
   font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
 }
 
 .hero-engagement-arrow {
